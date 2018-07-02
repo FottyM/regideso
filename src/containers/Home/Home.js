@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import SideBar from '../../component/SideBar/SideBar'
-import Main from '../Main/Main'
+import MainContent from '../MainContent/MainContent'
 
 export default class Home extends Component {
   static propTypes = {
@@ -10,10 +10,10 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div class="container-fluid">
-        <div class="row">
+      <div className="container-fluid">
+        <div className="row">
           <SideBar />
-          <Main />
+          <MainContent />
         </div>
       </div>
     )

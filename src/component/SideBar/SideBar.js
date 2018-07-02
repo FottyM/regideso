@@ -1,80 +1,66 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as Icon from 'react-feather'
+import { Link } from 'react-router-dom'
 
 const SideBar = () => {
   return (
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <span data-feather="home" />
-              Dashboard <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+    <nav className="col-md-2 d-none d-md-block bg-light sidebar">
+      <div className="sidebar-sticky">
+        <ul className="nav flex-column">
+          <li className="nav-item">
+            <Link className="nav-link" to="/section/home">
               <Icon.Home className="feather" />
-              <span>Order</span>
-            </a>
+              Dashboard <span className="sr-only">(current) </span>
+            </Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart" />
-              Products
-            </a>
+          <li className="nav-item">
+            <Link className="nav-link" to="/section/order">
+              <Icon.Book className="feather" />
+              Order
+            </Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users" />
+          <li className="nav-item">
+            <Link className="nav-link" to="/section/customers">
+              <Icon.Users className="feather" />
               Customers
-            </a>
+            </Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2" />
+          <li className="nav-item">
+            <Link className="nav-link" to="/section/reports">
+              <Icon.PieChart className="feather" />
               Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers" />
-              Integrations
-            </a>
+            </Link>
           </li>
         </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+        <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Saved reports</span>
-          <a class="d-flex align-items-center text-muted" href="#">
+          <Link
+            className="d-flex align-items-center text-muted"
+            to="/section/saved-report"
+          >
             <Icon.PlusCircle className="feather" />
-          </a>
+          </Link>
         </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text" />
+        <ul className="nav flex-column mb-2">
+          <li className="nav-item">
+            <Link className="nav-link" to="/section/today">
+              <Icon.BarChart className="feather" />
+              Today
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/section/current-month">
+              <Icon.BarChart2 className="feather" />
               Current month
-            </a>
+            </Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text" />
+          <li className="nav-item">
+            <Link className="nav-link" to="/section/last-quarter">
+              <Icon.Archive className="feather" />
               Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text" />
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text" />
-              Year-end sale
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
