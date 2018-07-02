@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Calendar, ExternalLink, Share2 } from 'react-feather'
 import { Route } from 'react-router-dom'
 import DashboardSection from '../../component/DashboardSection/DashboardSection'
-import { SSL_OP_PKCS1_CHECK_2 } from 'constants'
 
 export default class MainContent extends Component {
   static propTypes = {
