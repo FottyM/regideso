@@ -1,7 +1,7 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import React from 'react';
+import { shallow } from 'enzyme';
 
-import CustomerListItem from './CustomerListItem'
+import CustomerListItem from './CustomerListItem';
 
 describe('<CustomerListItem />', () => {
   const defautProps = {
@@ -20,21 +20,21 @@ describe('<CustomerListItem />', () => {
     ]
   }
 
-  it("doesn't catch fire", () => {
+  it('doesn\'t catch fire', () => {
     const wrapper = shallow(<CustomerListItem {...defautProps} />)
-    expect(wrapper.length).toEqual(1)
-  })
+    expect(wrapper).toHaveLength(1)
+  });
   it('renders given props', () => {
     const wrapper = shallow(<CustomerListItem {...defautProps} />)
-    expect(wrapper.find('h5.card-title').text()).toBe('John Doe')
+    expect(wrapper.find('h5.card-title').text()).toBe('John Doe');
   })
 
   it('renders <Collapse />', () => {
     const wrapper = shallow(<CustomerListItem {...defautProps} />)
     expect(wrapper.find('Collapse').prop('isOpened')).toEqual(true)
-  })
+  });
   it('renders <Line /> chart', () => {
     const wrapper = shallow(<CustomerListItem {...defautProps} />)
-    expect(wrapper.find('Line').length).toEqual(1)
-  })
+    expect(wrapper.find('Line')).toHaveLength(1)
+  });
 })

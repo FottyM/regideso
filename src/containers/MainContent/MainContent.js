@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Calendar, ExternalLink, Share2 } from 'react-feather'
-import { Route } from 'react-router-dom'
-import { AnimatedSwitch, spring, AnimatedRoute } from 'react-router-transition'
-import DashboardSection from '../../component/DashboardSection/DashboardSection'
-import CustomerList from '../../component/CustomerList/CustomerList'
-import './MainContent.css'
+import React, { Component } from 'react';
+import { Calendar, ExternalLink, Share2 } from 'react-feather';
+import { Route } from 'react-router-dom';
+import { AnimatedSwitch, spring } from 'react-router-transition';
+import DashboardSection from '../../component/DashboardSection/DashboardSection';
+import CustomerList from '../../component/CustomerList/CustomerList';
+import './MainContent.css';
 
 class MainContent extends Component {
   // static propTypes = {

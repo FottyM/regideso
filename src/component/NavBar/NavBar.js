@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const NavBar = props => {
   return (
@@ -22,7 +22,7 @@ const NavBar = props => {
       </ul>
     </nav>
   )
-}
+};
 
 NavBar.propTypes = {}
 

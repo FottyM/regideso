@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import * as Icon from 'react-feather'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import * as Icon from 'react-feather';
+import { NavLink } from 'react-router-dom';
 
 const SideBar = () => {
   return (
@@ -66,7 +65,7 @@ const SideBar = () => {
       </div>
     </nav>
   )
-}
+};
 
 SideBar.propTypes = {}
 

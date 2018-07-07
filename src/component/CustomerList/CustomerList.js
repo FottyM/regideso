@@ -1,26 +1,31 @@
 import React, { Component } from 'react'
-import { Line, Bar } from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2'
 import { Collapse } from 'react-collapse'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import PlusCircle from 'react-feather/dist/icons/plus-circle'
 import MinusCircle from 'react-feather/dist/icons/minus-circle'
 
+const fetchData = () =>
+  fetch(`http://localhost:4000/customers`).then(res => res.json())
 class CustomerList extends Component {
   // static propTypes = {
   //   prop: PropTypes
   // }
+  static defaultProps = {
+    fetchData
+  }
   state = {
     data: null,
     collapsed: true,
     error: ''
   }
 
-  componentDidMount = async () => {
+  async componentDidMount() {
     try {
-      const response = await fetch(`http://localhost:4000/customers`)
-      const data = await response.json()
+      const data = await this.props.fetchData()
       this.setState({ data })
+      console.log(JSON.stringify(data))
     } catch (error) {
       this.setState({ error })
     }
@@ -76,7 +81,7 @@ class CustomerList extends Component {
                       isOpened={collapsed}
                       springConfig={{ stiffness: 100, damping: 20 }}
                     >
-                      <Bar
+                      <Line
                         options={{
                           maintainAspectRatio: true
                         }}

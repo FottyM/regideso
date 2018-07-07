@@ -1,8 +1,8 @@
-import React, { Component, createRef } from 'react'
-import { Collapse } from 'react-collapse'
-import { Line } from 'react-chartjs-2'
-import moment from 'moment'
-import PropTypes from 'prop-types'
+import React, { Component, createRef } from 'react';
+import { Collapse } from 'react-collapse';
+import { Line } from 'react-chartjs-2';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class CustomerListItem extends Component {
   // static propTypes = {
