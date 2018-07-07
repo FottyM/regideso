@@ -1,5 +1,5 @@
-import uuid from 'uuid4'
-import moment from 'moment'
+const uuid = require('uuid4')
+const moment = require('moment')
 
 const randArr = () => {
   var arr = []
@@ -11,7 +11,7 @@ const randArr = () => {
   return arr
 }
 
-export default [
+module.exports = [
   {
     uuid: uuid(),
     username: 'johndoe',

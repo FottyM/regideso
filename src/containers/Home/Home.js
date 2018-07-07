@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import SideBar from '../../component/SideBar/SideBar'
 import MainContent from '../MainContent/MainContent'
 
-export default class Home extends Component {
+class Home extends Component {
   // static propTypes = {
   //   prop: PropTypes
   // }
@@ -19,3 +19,5 @@ export default class Home extends Component {
     )
   }
 }
+
+export default Home

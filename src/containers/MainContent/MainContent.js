@@ -7,7 +7,7 @@ import DashboardSection from '../../component/DashboardSection/DashboardSection'
 import CustomerList from '../../component/CustomerList/CustomerList'
 import './MainContent.css'
 
-export default class MainContent extends Component {
+class MainContent extends Component {
   // static propTypes = {
   //   prop: PropTypes
   // }
@@ -34,19 +34,17 @@ export default class MainContent extends Component {
             </button>
           </div>
         </div>
-        <div>
-          <AnimatedSwitch
-            atEnter={bounceTransition.atEnter}
-            atLeave={bounceTransition.atLeave}
-            atActive={bounceTransition.atActive}
-            mapStyles={mapStyles}
-            className="route-wrapper"
-          >
-            <Route exact={true} path="/" component={DashboardSection} />
-            <Route path="/section/customers/" component={CustomerList} />
-            <Route path="/section/:sectionId" component={DashboardSection} />
-          </AnimatedSwitch>
-        </div>
+        <AnimatedSwitch
+          atEnter={bounceTransition.atEnter}
+          atLeave={bounceTransition.atLeave}
+          atActive={bounceTransition.atActive}
+          mapStyles={mapStyles}
+          className="route-wrapper"
+        >
+          <Route exact={true} path="/" component={DashboardSection} />
+          <Route path="/section/customers/" component={CustomerList} />
+          <Route path="/section/:sectionId" component={DashboardSection} />
+        </AnimatedSwitch>
       </main>
     )
   }
@@ -85,3 +83,5 @@ const bounceTransition = {
     scale: bounce(1)
   }
 }
+
+export default MainContent

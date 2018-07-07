@@ -1,10 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow } from 'enzyme'
+
 import CustomerListItem from './CustomerListItem'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  const data = {
+describe('<CustomerListItem />', () => {
+  const defautProps = {
     uuid: 'b48a2e56-40c4-4d0b-a3d7-04d4103ef5fc',
     username: 'johndoe',
     firstName: 'John',
@@ -19,6 +19,22 @@ it('renders without crashing', () => {
       }
     ]
   }
-  ReactDOM.render(<CustomerListItem {...data} />, div)
-  ReactDOM.unmountComponentAtNode(div)
+
+  it("doesn't catch fire", () => {
+    const wrapper = shallow(<CustomerListItem {...defautProps} />)
+    expect(wrapper.length).toEqual(1)
+  })
+  it('renders given props', () => {
+    const wrapper = shallow(<CustomerListItem {...defautProps} />)
+    expect(wrapper.find('h5.card-title').text()).toBe('John Doe')
+  })
+
+  it('renders <Collapse />', () => {
+    const wrapper = shallow(<CustomerListItem {...defautProps} />)
+    expect(wrapper.find('Collapse').prop('isOpened')).toEqual(true)
+  })
+  it('renders <Line /> chart', () => {
+    const wrapper = shallow(<CustomerListItem {...defautProps} />)
+    expect(wrapper.find('Line').length).toEqual(1)
+  })
 })
