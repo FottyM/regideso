@@ -1,17 +1,23 @@
-import React, { Component } from 'react';
-import { Calendar, ExternalLink, Share2 } from 'react-feather';
-import { Route } from 'react-router-dom';
-import { AnimatedSwitch, spring } from 'react-router-transition';
-import DashboardSection from '../../component/DashboardSection/DashboardSection';
-import CustomerList from '../../component/CustomerList/CustomerList';
-import './MainContent.css';
+import React, { Component } from 'react'
+import { Calendar, ExternalLink, Share2 } from 'react-feather'
+import { Route } from 'react-router-dom'
+import { AnimatedSwitch, spring } from 'react-router-transition'
+
+import { getCustomersReading } from '../../actions/customer'
+import DashboardSection from '../../component/DashboardSection/DashboardSection'
+import CustomerList from '../../component/CustomerList/CustomerList'
+import './MainContent.css'
 
 class MainContent extends Component {
   // static propTypes = {
   //   prop: PropTypes
   // }
 
+  componentDidMount() {}
+
   render() {
+    console.log(this.props)
+
     return (
       <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">

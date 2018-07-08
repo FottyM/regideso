@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
-import './App.css';
-import NavBar from './component/NavBar/NavBar';
-import Home from './containers/Home/Home';
+import React, { Component, Fragment } from 'react'
+import './App.css'
+import NavBar from './component/NavBar/NavBar'
+import Home from './containers/Home/Home'
 
 class App extends Component {
   render() {

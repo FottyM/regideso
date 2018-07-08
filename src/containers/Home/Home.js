@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import SideBar from '../../component/SideBar/SideBar';
-import MainContent from '../MainContent/MainContent';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import SideBar from '../../component/SideBar/SideBar'
+import MainContent from '../MainContent/MainContent'
 
 class Home extends Component {
   // static propTypes = {

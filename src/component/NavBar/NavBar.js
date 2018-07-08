@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const NavBar = props => {
   return (
     <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
-        Company name
+        Regideso
       </a>
       <input
         className="form-control form-control-dark w-100"
@@ -22,7 +22,7 @@ const NavBar = props => {
       </ul>
     </nav>
   )
-};
+}
 
 NavBar.propTypes = {}
 
