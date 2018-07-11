@@ -1,24 +1,31 @@
 import {
   GET_CUSTOMERS_READINGS,
-  GET_CUSTOMERS_READINGS_ERROR
+  GET_CUSTOMERS_READINGS_ERROR,
+  GET_CURRENT_CUSTOMER
 } from './actionTypes'
 
-export const getCustomersReading = async () => {
-  try {
-    const data = await fetch(`http://localhost:4000/customers`).then(res => {
-      return res.json()
-    })
+export const getCustomersReading = () => {
+  const hound = fetch(`http://localhost:4000/customers`).then(res => res.json())
+  return dispatch => {
+    hound
+      .then(res => {
+        dispatch({
+          type: GET_CUSTOMERS_READINGS,
+          payload: [...res]
+        })
+      })
+      .catch(({ message }) => {
+        dispatch({
+          type: GET_CUSTOMERS_READINGS_ERROR,
+          payload: { message }
+        })
+      })
+  }
+}
 
-    return dispatch => {
-      return {
-        type: GET_CUSTOMERS_READINGS,
-        payload: { ...data }
-      }
-    }
-  } catch (error) {
-    return {
-      type: GET_CUSTOMERS_READINGS_ERROR,
-      payload: { ...error }
-    }
+export const getCurrentCustomer = uuid => {
+  return {
+    type: GET_CURRENT_CUSTOMER,
+    payload: uuid
   }
 }

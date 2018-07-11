@@ -1,1 +1,1 @@
-export { getCustomersReading } from './customer'
+export { getCustomersReading, getCurrentCustomer } from './customer'

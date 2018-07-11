@@ -1,30 +1,22 @@
 import React, { Component, createRef } from 'react'
 import { Collapse } from 'react-collapse'
 import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2'
+import { Link } from 'react-router-dom'
 import PlusCircle from 'react-feather/dist/icons/plus-circle'
 import MinusCircle from 'react-feather/dist/icons/minus-circle'
+import ExternalLink from 'react-feather/dist/icons/external-link'
+
 import moment from 'moment'
 import PropTypes from 'prop-types'
 
 class CustomerListItem extends Component {
-  // static propTypes = {
-  //   prop: PropTypes
-  // }
   state = {
     collapsed: false
-  }
-  constructor(props) {
-    super(props)
-    this.itemRef = createRef()
-  }
-
-  handleClick(e) {
-    console.log(e)
   }
 
   render() {
     const { collapsed } = this.state
-
+    const { uuid } = this.props
     return (
       <div className="col-12 col-md-6 col-lg-4">
         <div className="card bg-light mb-3">
@@ -54,10 +46,8 @@ class CustomerListItem extends Component {
               springConfig={{ stiffness: 100, damping: 20 }}
             >
               <Bar
-                // width={100}
-                // height={50}
                 options={{
-                  maintainAspectRatio: false
+                  maintainAspectRatio: true
                 }}
                 data={{
                   labels: Array(24)
@@ -77,6 +67,9 @@ class CustomerListItem extends Component {
                 }}
               />
             </Collapse>
+            <Link to={`/customers/${uuid}`} className="btn btn-info btn-block">
+              Open <ExternalLink className="feather" />
+            </Link>
           </div>
         </div>
       </div>

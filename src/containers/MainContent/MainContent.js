@@ -7,17 +7,13 @@ import { getCustomersReading } from '../../actions/customer'
 import DashboardSection from '../../component/DashboardSection/DashboardSection'
 import CustomerList from '../../component/CustomerList/CustomerList'
 import './MainContent.css'
+import CustomerDetails from '../../component/CustomerDetails/CustomerDetails'
 
 class MainContent extends Component {
   // static propTypes = {
   //   prop: PropTypes
   // }
-
-  componentDidMount() {}
-
   render() {
-    console.log(this.props)
-
     return (
       <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
@@ -48,6 +44,7 @@ class MainContent extends Component {
         >
           <Route exact={true} path="/" component={DashboardSection} />
           <Route path="/section/customers/" component={CustomerList} />
+          <Route path="/customers/:userID" component={CustomerDetails} />
           <Route path="/section/:sectionId" component={DashboardSection} />
         </AnimatedSwitch>
       </main>

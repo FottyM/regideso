@@ -8,7 +8,7 @@ const port = 4000 || process.env.PORT
 app.use(cors())
 
 app.get('/customers', (req, res) => {
-  res.json(data)
+  setTimeout(() => res.json(data), 1500)
 })
 
 app.listen(port, () => {
