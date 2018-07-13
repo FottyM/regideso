@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 
-import NavBar from './component/NavBar/NavBar'
+import { NavBar } from '../src/components/navigation'
 import Home from './containers/Home/Home'
 
 class App extends Component {

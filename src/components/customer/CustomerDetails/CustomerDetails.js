@@ -5,8 +5,8 @@ import { Bar } from 'react-chartjs-2'
 import ArrowLeftCircle from 'react-feather/dist/icons/arrow-left-circle'
 import moment from 'moment'
 
-import { getCurrentCustomer } from '../../actions/customer'
-import Spinner from '../Spinner/Spinner'
+import { getCurrentCustomer } from '../../../actions'
+import { Spinner } from '../../utilities'
 
 class CustomerDetails extends Component {
   componentDidMount() {

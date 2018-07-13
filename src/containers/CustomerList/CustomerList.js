@@ -2,44 +2,35 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
 import { getCustomersReading } from '../../actions/index'
-import CustomerListItem from '../CustomerListItem/CustomerListItem'
-import Spinner from '../Spinner/Spinner'
-import ErrorCard from '../ErrorCard/ErrorCard'
+import { CustomerListItem } from '../../components/customer'
+import { Alert, Spinner } from '../../components/utilities/index'
 
-// const fetchData = () =>
-// fetch(`http://localhost:4000/customers`).then(res => res.json())
 class CustomerList extends Component {
-  // static propTypes = {
-  //   prop: PropTypes
-  // }
-  // static defaultProps = {
-  //   fetchData
-  // }
-
-  // state = {
-  //   data: null,
-  //   error: null
-  // }
-
   componentDidMount() {
     this.props.getReading()
   }
 
   render() {
     const {
-      customers: { data, error },
+      customers: { data, error, loading },
       match,
       history
     } = this.props
 
     return (
-      <Spinner loading={data === null ? true : false}>
+      <Spinner loading={loading}>
         <div className="row">
           <div className="col-12">
             <h2 className="border-top-0 border-left-0 border-right-0  border border-light pb-3 mb-3">
               Customers List
             </h2>
-            {error !== null && <ErrorCard message={error.message} />}
+            {'message' in error && (
+              <Alert type="danger">
+                <p>
+                  <strong>{error.message}</strong>
+                </p>
+              </Alert>
+            )}
           </div>
         </div>
         <div className="row">

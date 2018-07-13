@@ -3,8 +3,12 @@ import PropTypes from 'prop-types'
 import { OrbitSpinner } from 'react-epic-spinners'
 const Spinner = ({ loading, children }) => {
   return loading ? (
-    <div className="d-flex h-100 w-100 justify-content-center align-items-center">
-      <OrbitSpinner color="teal" />
+    <div
+      className="d-flex w-100 justify-content-center align-items-center flex-column"
+      style={{ height: '50vh' }}
+    >
+      <OrbitSpinner color="red" />
+      <p className="text-danger">Loading...</p>
     </div>
   ) : (
     <Fragment>{children}</Fragment>
