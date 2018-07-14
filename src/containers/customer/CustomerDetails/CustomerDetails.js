@@ -7,7 +7,7 @@ import moment from 'moment'
 import isEmpty from 'lodash/isEmpty'
 
 import { Chart } from '../../../components/customer/'
-import { fecthingOneRequested } from '../../../actions'
+import { fecthingOneRequested, fecthingRequested } from '../../../actions'
 import { Spinner, Alert } from '../../../components/utilities/'
 import { hexToRgbA } from '../../../helpers/'
 
@@ -26,6 +26,7 @@ class CustomerDetails extends Component {
     if (isEmpty(params.userID)) {
       history.push('/')
     } else {
+      this.props.dispatch(fecthingRequested())
       this.props.dispatch(fecthingOneRequested(params.userID))
     }
   }
@@ -45,6 +46,7 @@ class CustomerDetails extends Component {
     } = this.props
 
     if (!isEmpty(params.userID)) {
+      this.props.dispatch(fecthingRequested())
       this.props.dispatch(fecthingOneRequested(params.userID))
     }
   }
