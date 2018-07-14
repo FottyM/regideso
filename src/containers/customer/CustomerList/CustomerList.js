@@ -1,13 +1,17 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import isEmpty from 'lodash/isEmpty'
 
-import { getCustomersReading } from '../../actions/index'
-import { CustomerListItem } from '../../components/customer'
-import { Alert, Spinner } from '../../components/utilities/index'
+import { getCurrentCustomer, fecthingRequested } from '../../../actions/'
+
+import { CustomerListItem } from '../../../components/customer/'
+import { Alert, Spinner } from '../../../components/utilities'
 
 class CustomerList extends Component {
   componentDidMount() {
-    this.props.getReading()
+    const { dispatch } = this.props
+    dispatch(fecthingRequested())
   }
 
   render() {
@@ -24,10 +28,15 @@ class CustomerList extends Component {
             <h2 className="border-top-0 border-left-0 border-right-0  border border-light pb-3 mb-3">
               Customers List
             </h2>
-            {'message' in error && (
+            {!isEmpty(error) && (
               <Alert type="danger">
                 <p>
-                  <strong>{error.message}</strong>
+                  Oops!{' '}
+                  <span role="img" aria-label="accessible-emoji">
+                    😰
+                  </span>
+                  <strong> {error.message} </strong>
+                  please try again
                 </p>
               </Alert>
             )}
@@ -37,6 +46,7 @@ class CustomerList extends Component {
           {data &&
             data.map(element => (
               <CustomerListItem
+                getCustomer={getCurrentCustomer}
                 {...element}
                 key={element.uuid}
                 match={match}
@@ -49,15 +59,14 @@ class CustomerList extends Component {
   }
 }
 
+CustomerList.propTypes = {
+  customers: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+}
+
 const mapStateToProps = state => ({
   customers: state.customers
 })
 
-const mapDispatchToProps = dispatch => ({
-  getReading: () => dispatch(getCustomersReading())
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CustomerList)
+export default connect(mapStateToProps)(CustomerList)

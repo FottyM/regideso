@@ -1,79 +1,100 @@
-import React, { Component, createRef } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Collapse } from 'react-collapse'
-import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2'
-import { Link } from 'react-router-dom'
 import PlusCircle from 'react-feather/dist/icons/plus-circle'
 import MinusCircle from 'react-feather/dist/icons/minus-circle'
 import ExternalLink from 'react-feather/dist/icons/external-link'
-
-import moment from 'moment'
 import PropTypes from 'prop-types'
+
+import Chart from '../Chart/Chart'
 
 class CustomerListItem extends Component {
   state = {
     collapsed: false
   }
 
+  handleCollapse = () => {
+    this.setState({ collapsed: !this.state.collapsed })
+  }
+
+  renderCollapse = () => {
+    const { collapsed } = this.state
+    return !collapsed ? (
+      <Fragment>
+        <p className="my-auto"> More...</p>
+        <p className="my-auto">
+          <PlusCircle className="feather" />
+        </p>
+      </Fragment>
+    ) : (
+      <Fragment>
+        <p className="my-auto"> Less...</p>
+        <p className="my-auto">
+          <MinusCircle className="feather" />
+        </p>
+      </Fragment>
+    )
+  }
+
+  handleClick = () => {
+    const {
+      uuid,
+      getCustomer,
+      history: { push }
+    } = this.props
+
+    getCustomer(uuid)
+    push(`/customers/${uuid}`)
+  }
+
   render() {
     const { collapsed } = this.state
-    const { uuid } = this.props
     return (
       <div className="col-12 col-md-6 col-lg-4">
         <div className="card bg-light mb-3">
           <div className="card-body">
-            <h5 className="card-title">
-              {this.props.firstName + ' ' + this.props.lastName}
-            </h5>
+            <div className="d-flex justify-content-between ">
+              <h5 className="card-title">
+                {this.props.firstName + ' ' + this.props.lastName}
+              </h5>
+              <span
+                onClick={this.handleClick}
+                className="text-primary"
+                style={{ cursor: 'pointer' }}
+              >
+                Open <ExternalLink className="feather" />
+              </span>
+            </div>
+
             <address className="card-text">
               <strong>{this.props.homeAdress}</strong>
             </address>
-            <h6
-              className="show-chart d-flex justify-content-between align-items-center text-danger my-3"
-              onClick={() => this.setState({ collapsed: !collapsed })}
+            <div
+              className="show-chart d-flex justify-content-between align-items-center text-success my-2"
+              onClick={this.handleCollapse}
               style={{ cursor: 'pointer' }}
             >
-              <span>More...</span>
-              <p className="d-flex align-items-center m-0">
-                {!collapsed ? (
-                  <PlusCircle className="feather" />
-                ) : (
-                  <MinusCircle className="feather" />
-                )}
-              </p>
-            </h6>
+              {this.renderCollapse()}
+            </div>
             <Collapse
               isOpened={collapsed}
-              springConfig={{ stiffness: 100, damping: 20 }}
+              springConfig={{ stiffness: 50, damping: 10 }}
             >
-              <Bar
-                options={{
-                  maintainAspectRatio: true
-                }}
-                data={{
-                  labels: Array(24)
-                    .fill('')
-                    .map((x, i) => i + 1 + 'h'),
-                  datasets: [
-                    {
-                      label:
-                        'Water consumption for ' +
-                        moment().format('DD.MM.YYYY'),
-                      backgroundColor: 'rgba(221, 75, 57,.3)',
-                      borderColor: 'rgba(221, 75, 57, 1)',
-                      borderWidth: 0.5,
-                      data: [...this.props.consumption[0].data]
-                    }
-                  ]
-                }}
+              <Chart
+                data={[...this.props.consumption[0].data]}
+                editable={false}
               />
             </Collapse>
-            <Link to={`/customers/${uuid}`} className="btn btn-info btn-block">
-              Open <ExternalLink className="feather" />
-            </Link>
           </div>
         </div>
       </div>
     )
   }
+}
+
+CustomerListItem.propTypes = {
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
+  homeAdress: PropTypes.string.isRequired,
+  consumption: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 export default CustomerListItem

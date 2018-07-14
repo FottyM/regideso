@@ -1,4 +1,5 @@
-import CustomerDetails from './CustomerDetails/CustomerDetails'
 import CustomerListItem from './CustomerListItem/CustomerListItem'
+import Chart from './Chart/Chart'
+import CustomerDetsHeader from './CustomerDetsHeader/CustomerDetsHeader'
 
-export { CustomerDetails, CustomerListItem }
+export { CustomerListItem, Chart, CustomerDetsHeader }

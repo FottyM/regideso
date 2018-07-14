@@ -8,7 +8,7 @@ const Spinner = ({ loading, children }) => {
       style={{ height: '50vh' }}
     >
       <OrbitSpinner color="red" />
-      <p className="text-danger">Loading...</p>
+      <h4 className="text-danger py-3">Loading...</h4>
     </div>
   ) : (
     <Fragment>{children}</Fragment>

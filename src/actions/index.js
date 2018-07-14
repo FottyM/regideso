@@ -1,1 +1,6 @@
-export { getCustomersReading, getCurrentCustomer } from './customer'
+export {
+  getCustomersReading,
+  getCurrentCustomer,
+  fecthingRequested,
+  fecthingOneRequested
+} from './customer'

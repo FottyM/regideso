@@ -11,8 +11,8 @@ describe('<Spinner />', () => {
         <p>follow your father</p>
       </Spinner>
     )
-    expect(component.children()).toHaveText('<OrbitSpinner />')
-    expect(component.children()).toHaveLength(1)
+    expect(component.find('OrbitSpinner')).toHaveLength(1)
+    expect(component.children()).toHaveLength(2)
   })
   it('renders children when loading is false', () => {
     loading = false

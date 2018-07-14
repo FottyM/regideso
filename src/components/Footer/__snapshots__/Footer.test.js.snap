@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders without crashing 1`] = `
+<footer
+  className="container-fluid"
+  id="footer"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 bg-dark py-5 text-white text-center"
+    >
+      <p>
+        Made with
+        <span
+          className="text-danger"
+        >
+          <Heart
+            className="feathre"
+            color="red"
+            size="24"
+          />
+        </span>
+        in Tallinn, Estonia, 
+        <br />
+         by
+        <a
+          className="font-weight-bold font-italic"
+          href="https://www.linkedin.com/in/fortunat-mutunda-06820a2b/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Fortunat Mutunda
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
+`;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class DashboardSection extends Component {
+class Section extends Component {
   render() {
     return (
       <div className="row">
@@ -12,4 +12,4 @@ class DashboardSection extends Component {
     )
   }
 }
-export default DashboardSection
+export default Section
