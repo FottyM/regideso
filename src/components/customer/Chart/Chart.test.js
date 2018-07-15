@@ -44,7 +44,7 @@ describe('<Chart />', () => {
       }
     ]
   }
-  it("doesn't crash", () => {
+  it('doesn\'t crash', () => {
     const change = sinon.spy()
     const component = shallow(
       <Chart
@@ -58,5 +58,4 @@ describe('<Chart />', () => {
     expect(component.length).toBe(1)
     expect(component.find('h5').first()).toHaveText('Charty and george')
   })
-  it("doesn't crash")
 })

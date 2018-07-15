@@ -45,7 +45,7 @@ describe('<CustomerListItem />', () => {
     ]
   }
 
-  it("doesn't catch fire", () => {
+  it('doesn\'t catch fire', () => {
     const wrapper = shallow(<CustomerListItem {...defautProps} />)
     expect(wrapper).toHaveLength(1)
   })
@@ -61,7 +61,7 @@ describe('<CustomerListItem />', () => {
   })
   it('renders chart', () => {
     const wrapper = shallow(<CustomerListItem {...defautProps} />)
-    expect(wrapper.find('Bar')).toHaveLength(1)
+    expect(wrapper.find('Chart')).toHaveLength(1)
   })
 
   it('shows chart on click (+)', () => {

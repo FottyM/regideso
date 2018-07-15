@@ -1,6 +1,5 @@
 import { call, put, select } from 'redux-saga/effects'
 import isEmpty from 'lodash/isEmpty'
-import isNill from 'lodash/isNil'
 import find from 'lodash/find'
 import {
   GET_CURRENT_CUSTOMER,

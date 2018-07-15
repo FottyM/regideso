@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import configureStore from 'redux-mock-store'
 
 import CustomerList from './CustomerList'
 
@@ -46,41 +47,20 @@ describe('<CustomerList />', () => {
       ]
     }
   ]
-  it("does't explode ", () => {
-    const wrapper = shallow(<CustomerList />)
+
+  const mockStore = configureStore()
+  let wrapper
+  let store
+
+  beforeEach(() => {
+    store = mockStore({ customers: { ...data } })
+    wrapper = shallow(<CustomerList store={store} match={{}} history={{}} />)
+  })
+  it('does\'t explode ', () => {
     expect(wrapper.length).toBe(1)
   })
-  it('fetches data on mount', async () => {
-    const fetchData = sinon.spy()
-    const wrapper = await mount(<CustomerList fetchData={fetchData} />)
+  it('fetches data on mount', () => {
     wrapper.update()
-    expect(fetchData.callCount).toBe(1)
-  })
-  it(
-    'sets state on mounnted'
-    //  async () => {
-    //   const fetchData = sinon.stub().returns(Promise.resolve(data))
-    //   const wrapper = await mount(<CustomerList fetchData={fetchData} />)
-    //   expect(wrapper.state('data')).toEqual(data)
-    // }
-  )
-
-  it('renders one <Bar /> chart', async () => {
-    const fetchData = sinon.stub().returns(Promise.resolve(data))
-    const wrapper = await mount(<CustomerList fetchData={fetchData} />)
-    wrapper.update()
-    expect(wrapper.find('Bar').length).toBe(1)
-  })
-  it('renders error on request failed', async () => {
-    const fetchData = sinon
-      .stub()
-      .returns(Promise.reject({ message: 'Component exploded' }))
-    const wrapper = await mount(<CustomerList fetchData={fetchData} />)
-    wrapper.update()
-    expect(wrapper.state('error')).toEqual({ message: 'Component exploded' })
-    expect(wrapper.find('div.alert').text()).toContain('Component exploded')
-  })
-  afterEach(() => {
-    sinon.restore()
+    expect(wrapper.prop('customers')).toBeTruthy()
   })
 })

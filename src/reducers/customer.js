@@ -1,5 +1,3 @@
-import find from 'lodash/find'
-
 import {
   GET_CUSTOMERS_READINGS,
   GET_CUSTOMERS_READINGS_ERROR,

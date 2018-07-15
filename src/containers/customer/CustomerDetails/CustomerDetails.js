@@ -11,7 +11,7 @@ import { fecthingOneRequested, fecthingRequested } from '../../../actions'
 import { Spinner, Alert } from '../../../components/utilities/'
 import { hexToRgbA } from '../../../helpers/'
 
-class CustomerDetails extends Component {
+export class CustomerDetails extends Component {
   state = {
     color: 'rgba(221, 75, 57, 0.3)',
     type: 'bar'
@@ -52,7 +52,7 @@ class CustomerDetails extends Component {
   }
 
   changeColorHandler({ target }) {
-    if (target.name === 'color') {
+    if (target.name === 'color' && target.name.length >= 4) {
       const color = hexToRgbA(target.value)
       this.setState({ color })
     } else {
@@ -127,7 +127,10 @@ class CustomerDetails extends Component {
 }
 
 CustomerDetails.propTypes = {
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
+  customer: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.object
 }
 
 const mapStateToProps = state => ({

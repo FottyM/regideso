@@ -3,7 +3,7 @@ import Share2 from 'react-feather/dist/icons/share-2'
 import ExternalLink from 'react-feather/dist/icons/external-link'
 import Calendar from 'react-feather/dist/icons/calendar'
 
-const ButtonToolbar = () => {
+const Toolbar = () => {
   return (
     <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
       <h1 className="h2">Dashboard</h1>
@@ -27,4 +27,4 @@ const ButtonToolbar = () => {
   )
 }
 
-export default ButtonToolbar
+export default Toolbar
