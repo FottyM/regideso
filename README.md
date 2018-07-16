@@ -20,7 +20,7 @@ _Note: Both the application and the server should be running before it works_
 - [Feather icons](https://feathericons.com/)
 - [Epxress js](https://expressjs.com/)
 - [Chart js](http://www.chartjs.org/docs/latest/)
-- Jest and Enzyme are used to test the application
+- [Jest](https://jestjs.io/), [Enzyme](http://airbnb.io/enzyme/) and [sinon](http://sinonjs.org/releases/v6.0.1/) are used to test the application
 
 ## Funtionalities
 
