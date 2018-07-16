@@ -7,6 +7,8 @@
 3.  `$ npm start` or `$ yarn start` to start the front-end on `http://localhost:3000`
 4.  `$ npm run test` or `$ yarn run test` to run the tests. All components are tested.
 
+_Note: Both the application and the server should be running before it works_
+
 ## Tech stack
 
 - [React ](https://reactjs.org/)
